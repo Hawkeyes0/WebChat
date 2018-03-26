@@ -19,6 +19,8 @@ namespace WebChat.Controllers
         public IActionResult Register([FromBody]PushRegisterModel model)
         {
             _logger.LogDebug("register push manager endpoint: {0}", model.Endpoint);
+            _logger.LogDebug("register push manager p256dh: {0}", model.Key);
+            _logger.LogDebug("register push manager auth: {0}", model.Secret);
             HttpContext.Session.SetString("endpoint", model.Endpoint);
             HttpContext.Session.SetString("key", model.Key);
             HttpContext.Session.SetString("secret", model.Secret);
